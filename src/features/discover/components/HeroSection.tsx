@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Container from "@/app/(main)/Container";
 import FirstCarousel from "./FirstCarousel";
-import Image1 from "../assets/Banner.avif"
+import Image1 from "../assets/Banner.avif";
 
 const HeroSection = () => {
     return (

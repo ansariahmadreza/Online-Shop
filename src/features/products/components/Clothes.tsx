@@ -52,6 +52,7 @@ const Clothes = () => {
     for (let i = 1; i <= totalPage; i++) { //loop for iterating through page counts and  adding them to an array.
         pageNumbers.push(i)
     }
+
     ///filter
     const minPriceFilter = (e: ChangeEvent<HTMLInputElement>) => {
         setMinFilter(e.target.value)
@@ -155,7 +156,7 @@ const Clothes = () => {
                             {!resultFilters && pageNumbers.map((pageNumber) => (
                                 <button key={pageNumber}
                                     onClick={() => setCurrentPage(pageNumber)}
-                                    className={`cursor-pointer border rounded-md px-3 mx-2 py-1  mt-[150px]
+                                    className={`cursor-pointer border rounded-md px-3 mx-2 py-1  mt-[100px]
                                 ${currentPage === pageNumber ? 'bg-neutral-400 text-black' : 'hover:bg-gray-400 hover:text-white'}`}>
                                     {pageNumber}
                                 </button>

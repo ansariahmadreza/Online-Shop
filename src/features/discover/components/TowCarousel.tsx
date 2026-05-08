@@ -104,7 +104,7 @@ const TwoCoursel = () => {
             <div className="mt-[350px] flex flex-col justify-center items-center">
                 <Link href={routes.Product.Clothes} target="_blank" rel="noopener noreferrer">
                     <button className="bg-black text-white py-2 px-20  cursor-pointer">
-                        SHOP NOW
+                     Show Products
                     </button>
                 </Link>
 
