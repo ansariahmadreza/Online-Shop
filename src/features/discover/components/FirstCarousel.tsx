@@ -47,9 +47,8 @@ const FirstCoursel = () => {
     return (
         <div>
             <Container>
-                <section className="w-full  mx-auto px-14 h-[300px] relative mt-[25px]">
+                <section className="relative mt-12">
                     <Swiper
-                        className=" group "
                         modules={[Navigation, Pagination]}
                         centeredSlides={false}
                         slidesPerGroup={4}
@@ -64,33 +63,58 @@ const FirstCoursel = () => {
                             nextEl: ".Right-btn",
                             enabled: true
                         }}
+                        breakpoints={{
+                            0: {
+                                slidesPerView: 1,
+                                slidesPerGroup: 1,
+                            },
+                            640: {
+                                slidesPerView: 2,
+                                slidesPerGroup: 2,
+                            },
+                            768: {
+                                slidesPerView: 3,
+                                slidesPerGroup: 3,
+                            },
+                            1024: {
+                                slidesPerView: 4,
+                                slidesPerGroup: 4,
+                            },
+                        }}
                     >
                         {arryImg.map((item) =>
-                            <SwiperSlide key={item.id} >
-                                <section className="flex flex-col items-center justify-center w-[365px]  mb-10">
-                                    <Image src={item.image} alt="img" className="w-[364.25px] h-[400px]  max-2xl:h-[390px]" />
-                                    <div className="pr-4 max-2xl:flex max-2xl:flex-col max-2xl:justify-start max-2xl:w-[300px] max-2xl:ml-[-45px]">
-                                        <p className="max-2xl:h-[50px] max-2xl:text-[14px] text-[15px] max-2xl:w-[250px]">{item.Description}</p>
-                                        <span className="text-neutral-800  font-bold max-2xl:text-[14px] float-left ">{item.Price}</span>
+                            <SwiperSlide key={item.id} className="w-full h-auto">
+                                <article className="group cursor-pointer">
+                                    <div className="overflow-hidden">
+                                        <Image src={item.image} alt="img"
+                                            className="w-full h-auto object-cover group-hover:scale-105
+                                             transition-transform duration-300" />
                                     </div>
-                                </section>
+
+                                    <div className="mt-3 px-1">
+                                        <p className="text-sm md:text-base line-clamp-2 text-neutral-700">{item.Description}</p>
+                                        <span className="mt-2 block font-semibold text-neutral-950">{item.Price}</span>
+                                    </div>
+                                </article>
                             </SwiperSlide>
                         )}
                         {/*  صفحه بندی تصاویر */}
-                        <div className="custom-class text-center flex justify-center items-center "></div>
+                        <div className="custom-class mt-8 flex justify-center"></div>
                     </Swiper>
-                    {/* فلش سمت چپ */}
-                    <section>
-                        <button className="left-btn absolute  top-[50%] z-50 group-hover w-[30px] h-[30px] ">
-                            <AiOutlineLeft className="cursor-pointer mt-3 text-neutral-500 hover:text-neutral-950 ml-[-50px] text-[55px]" />
-                        </button>
-                    </section>
-                    {/* فلش سمت راست*/}
-                    <section className="flex justify-end">
-                        <button className="Right-btn  absolute top-[50%] z-50 group-hover w-[30px] h-[30px]">
-                            <AiOutlineRight className="cursor-pointer pl-[25px] text-[80px] text-neutral-500 hover:text-neutral-950" />
-                        </button>
-                    </section>
+                    <div>
+                        {/* فلش سمت چپ */}
+                        <section>
+                            <button className="left-btn absolute  max-lg:hidden max-xl:top-[25%] top-[30%] z-50 group-hover w-[30px] h-auto ">
+                                <AiOutlineLeft className="cursor-pointer mt-3 text-neutral-500 hover:text-neutral-950  text-[55px]" />
+                            </button>
+                        </section>
+                        {/* فلش سمت راست*/}
+                        <section className="flex justify-end">
+                            <button className="Right-btn absolute max-lg:hidden max-xl:top-[25%] top-[30%] z-50 group-hover w-[30px] h-[30px]">
+                                <AiOutlineRight className="cursor-pointer pl-[25px] ml-[-45px] text-[80px] text-neutral-500 hover:text-neutral-950" />
+                            </button>
+                        </section>
+                    </div>
                 </section>
             </Container>
             <HomeSection />

@@ -1,48 +1,53 @@
-import Image from "next/image"
-import assos from "../assets/assos.svg"
+import Image from "next/image";
+import assos from "../assets/assos.svg";
 
 const BannerNav = () => {
     return (
         <section >
-            <div className="text-[14px] flex justify-center items-center border-b py-0.5">
-                <section className="mr-[270px]">
-                    <button className="border-2 px-4 py-1 border-white tracking-[1px] hover:opacity-50  transition delay-75 duration-300
-                     cursor-pointer text-[12px]">WOMEN</button>
-                </section>
-                <div>
-                    <p className="w-[420px] text-center">
-                        New here?Get 15% off + Free Next Day Delivery on your first order with code NEWHERE when you subscribe.
+            {/* Top Banner */}
+            <div className="w-screen border-b pb-2 max-lg:mt-[-25px] flex items-center justify-between px-4 lg:px-12 gap-4">
+                <button className=" border-2 border-white px-4 py-1 tracking-[1px] text-[12px]
+                 hover:opacity-50 transition duration-300 cursor-pointer shrink-0">
+                    WOMEN
+                </button>
+
+                <div className="text-center ">
+                    <p className="text-[14px]">
+                        New here? Get 15% off + Free Next Day Delivery on your first order with code NEWHERE when you subscribe.
                     </p>
-                    <p>
-                        Want more?Order on the app with code HEYAPP and get 20% off insted!
+
+                    <p className="text-[14px] mt-1">
+                        Want more? Order on the app with code HEYAPP and get 20% off instead!
                     </p>
                 </div>
-                <section>
-                    <button className="border-2 px-6 py-1 text-[12px] border-white cursor-pointer tracking-[1px] transition delay-75 
-              ml-[270px]  hover:opacity-50 duration-300">MEN</button>
-                </section>
+
+                <button className="border-2 border-white px-6 py-1 text-[12px] tracking-[1px]
+                    hover:opacity-50 transition duration-300 cursor-pointer shrink-0">
+                    MEN
+                </button>
             </div>
 
-            <section className="pt-2  pb-10">
-                <div className="flex justify-center items-center">
-                    <Image src={assos} alt="" className="invert-100 text-2xl font-extrabold" />
-                    <p className="text-[30px] pl-4">BLACK FRIDAY DAILY DEALS</p>
+            {/* Main Banner */}
+            <section className="pt-6 pb-10 px-4 hidden md:block">
+                <div className="flex justify-center items-center text-center gap-4">
+                    <Image src={assos} alt="asos" className="invert" />
+
+                    <p className="text-[30px] font-semibold">BLACK FRIDAY DAILY DEALS</p>
                 </div>
 
-                <div className="flex justify-center items-center flex-col text-[#00ff00] mt-6">
-                    <h1 className="text-[50px] w-[600px] font-extrabold text-center leading-13 ">UP TO 25% OFF BIG BRANDS</h1>
-                    <p className="font-bold mt-2 text-[22px]">
-                        Use code:LOOKS
-                    </p>
+                <div className=" flex justify-center items-center flex-col text-[#00ff00]  mt-6 text-center">
+                    <h1 className="text-[50px] font-extrabold leading-tight">
+                        UP TO 25% OFF BIG BRANDS
+                    </h1>
 
-                    <p className="mt-4">
-                        Vaild on selected products only.See website banner for full Ts&Cs
+                    <p className="font-bold mt-3 text-[22px]">Use code: LOOKS</p>
+
+                    <p className="mt-4 text-base">
+                        Valid on selected products only. See website banner for full Ts&Cs
                     </p>
                 </div>
-
             </section>
         </section>
-    )
-}
-
+    );
+};
 export default BannerNav;

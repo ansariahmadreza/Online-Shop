@@ -9,8 +9,9 @@ import slugify from "slugify";
 import Container from "@/app/(main)/Container";
 import UseLocalStorage from './UseLocalStorage';
 import Sort from '../sort/Sort';
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 import { X } from 'lucide-react';
+import { Slider } from "radix-ui";
 
 type filtersType = {
     id: number;
@@ -35,10 +36,11 @@ type filtersType = {
 const Clothes = () => {
     const { setFlagSort, flagSort } = useCartContext()
     const [currentPage, setCurrentPage] = useState<number>(1)
-    const [minFilter, setMinFilter] = useState<string>()
-    const [maxFilter, setMaxFilter] = useState<string>()
+    const [minFilter, setMinFilter] = useState<number>(20)
+    const [maxFilter, setMaxFilter] = useState<number>(45)
     const [flagFilter, setFlagFilter] = useState<boolean>(false)
     const [resultFilters, setResultFilters] = useState<filtersType | undefined>()
+
 
     ///paginate
     const page = 2 ///all pages
@@ -54,19 +56,17 @@ const Clothes = () => {
     }
 
     ///filter
-    const minPriceFilter = (e: ChangeEvent<HTMLInputElement>) => {
-        setMinFilter(e.target.value)
-    }
-
-    const maxPriceFilter = (e: ChangeEvent<HTMLInputElement>) => {
-        setMaxFilter(e.target.value)
+    const handlerRangeFilter = (value: number[]) => {
+        value.forEach((element, index) => {
+            index === 0 ? setMinFilter(element) : setMaxFilter(element);
+        })
     }
 
     const handlerFilterPrice = () => {
         const itemFilters = allImg.filter(item => {
             const Price = parseInt(item.price.split("£")[1].trim()) //extracts the price from the string,
             // removes extraneous symbols and whitespace,and parses it into an integer.
-            return Price >= parseInt(minFilter!) && Price <= parseInt(maxFilter!)
+            return Price >= minFilter && Price <= maxFilter
         });
         setResultFilters(itemFilters)
     }
@@ -79,22 +79,53 @@ const Clothes = () => {
             {/* Filter */}
             <section className={`${flagFilter ? "relative" : "hidden"} `}>
 
-                <div className={` absolute left-0  bg-neutral-300 transition h-[1000px] w-[200px] delay-300 z-50 `}>
+                <div className={` absolute left-0  bg-white shadow-2xl transition h-[650px] w-[300px] delay-300 z-50 `}>
                     <X onClick={() => { setFlagFilter(false) }} className="cursor-pointer float-right" />
+                    <h1 className='font-black text-center'>Filter</h1>
                     {/* filterPrice */}
-                    <section className='mt-20'>
-                        <input type="number" onChange={(e) => { minPriceFilter(e) }} min={20} max={50} placeholder='minPriceFilter'
-                            className='border-2 border-black outline-0 w-[150px]' />
 
-                        <input type="number" onChange={(e) => { maxPriceFilter(e) }} min={20} max={50} placeholder='maxPriceFilter'
-                            className='border-2 border-black outline-0 w-[150px]' />
+                    <section className='mt-20 flex-col justify-center items-center'>
+                        <div className='flex justify-between mx-12 mb-5'>
+                            <p>£{minFilter}</p>
+                            <p>£{maxFilter}</p>
+                        </div>
+                        <form className='flex justify-center'>
+                            <Slider.Root
+                                className="relative flex h-5 w-[200px] touch-none select-none items-center"
+                                defaultValue={[20, 45]}
+                                max={45}
+                                min={20}
+                                step={1}
+                                minStepsBetweenThumbs={1}
+                                onValueChange={(value) => handlerRangeFilter(value)}
+                            >
+                                <Slider.Track className="relative h-[3px] grow rounded-full bg-blackA7">
+                                    <Slider.Range className="absolute h-full rounded-full bg-black" />
+                                </Slider.Track>
+
+                                <Slider.Thumb
+                                    className="block size-5 rounded-[10px] bg-white shadow-[0_2px_10px]
+                                     shadow-blackA4 hover:bg-violet3 focus:shadow-[0_0_0_5px] focus:shadow-blackA5 focus:outline-none"
+                                    aria-label="Volume"
+                                />
+
+                                <Slider.Thumb
+                                    className="block size-5 rounded-[10px] bg-white shadow-[0_2px_10px]
+                                     shadow-blackA4 hover:bg-violet3 focus:shadow-[0_0_0_5px] focus:shadow-blackA5 focus:outline-none"
+                                    aria-label="Volume"
+                                />
+                            </Slider.Root>
+                        </form>
                     </section>
 
-                    <button onClick={() => { handlerFilterPrice() }} className='border bg-black text-white p-3 mt-10 cursor-pointer'>
-                        Filter by Price
-                    </button>
 
-                    <button onClick={() => { location.reload() }} className='bg-black mt-10 cursor-pointer text-white p-2'>Remove price filter</button>
+                    <section className='w-full mt-20 flex justify-center items-center'>
+                        <button onClick={() => { location.reload() }} className='bg-white  w-[45%] mx-1 cursor-pointer
+                         border-black border-2 text-black py-2.5 px-2 '>Clear</button>
+
+                        <button className="bg-[#2d2d2d] hover:bg-black 
+                             text-white w-[45%] py-3 px-2 mx-1 cursor-pointer" onClick={() => { handlerFilterPrice() }}>VIEW ITEMS</button>
+                    </section>
                 </div>
 
             </section>
@@ -123,33 +154,26 @@ const Clothes = () => {
 
                         <section className='mt-5 w-full gap-x-5 grid place-items-center grid-cols-4'>
                             {
-                                resultFilters ? //remove pagination if the price filter is applied
-                                    resultFilters.map((item) =>
-                                        <div key={item.description} className='group relative w-[300px]  h-[450px]'>
-                                            <Link href={`/clothes/${slugify(item.slug, { lower: true, strict: true })}`} >
-                                                <Image src={item.imgBef} alt='imgbef' className='absolute cursor-pointer  opacity-100 group-hover:opacity-0' width={300} height={300} />
-                                                <Image src={item.imgAf} alt='imgaf' className='absolute cursor-pointer opacity-0 group-hover:opacity-100' width={300} height={300} />
-                                                <span className='text-rose-500 relative  text-[12px] tracking-wider bg-white'>{item.discountRate}</span>
-                                            </Link>
-                                            <UseLocalStorage id={item.id} />
-                                            <p className='text-black text-[12px] absolute mt-[200px] left-0'>{item.description}</p>
-                                            <span className='text-[12px] font-bold absolute mt-[182px] left-0'>{item.price}</span>
-                                        </div>
-                                    )
-                                    :
-                                    currentItemsSort.map((item) => //display product in normal mode
-                                        <div key={item.description} className='group relative w-[300px]  h-[450px]'>
-                                            <Link href={`/clothes/${slugify(item.slug, { lower: true, strict: true })}`} >
-                                                <Image src={item.imgBef} alt='imgbef' className='absolute cursor-pointer  opacity-100 group-hover:opacity-0' width={300} height={300} />
-                                                <Image src={item.imgAf} alt='imgaf' className='absolute cursor-pointer opacity-0 group-hover:opacity-100' width={300} height={300} />
-                                                <span className='text-rose-500 relative  text-[12px] tracking-wider bg-white'>{item.discountRate}</span>
-                                            </Link>
-                                            <UseLocalStorage id={item.id} />
-                                            <p className='text-black text-[12px] absolute mt-[200px] left-0'>{item.description}</p>
-                                            <span className='text-[12px] font-bold absolute mt-[182px] left-0'>{item.price}</span>
-                                        </div>
-                                    )
-                            }
+                                //remove pagination if the price filter is applied
+                                (resultFilters ? resultFilters : currentItemsSort).map((item) =>
+                                    <div key={item.description} className='group relative w-full  h-[450px]'>
+                                        <Link href={`/clothes/${slugify(item.slug, { lower: true, strict: true })}`} >
+                                            <Image src={item.imgBef} alt='imgbef' className='absolute cursor-pointer  opacity-100 group-hover:opacity-0'
+                                                width={400} height={300} />
+                                            <Image src={item.imgAf} alt='imgaf' className='absolute cursor-pointer opacity-0 group-hover:opacity-100'
+                                                width={400} height={300} />
+                                            <span className='text-rose-500 relative  text-[12px] tracking-wider bg-white'>{item.discountRate}</span>
+                                        </Link>
+                                        <section className='mt-40'>
+                                            <div className='ml-[-30px]'>
+                                                <UseLocalStorage id={item.id} />
+                                            </div>
+
+                                            <p className='text-black text-[12px] absolute  mt-[180px] left-0'>{item.description}</p>
+                                            <span className='text-[12px] font-bold absolute  bottom-1 left-0'>{item.price}</span>
+                                        </section>
+                                    </div>
+                                )}
                         </section>
 
                         <div className='flex justify-center items-center'>

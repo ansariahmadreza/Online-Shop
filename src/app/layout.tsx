@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
     return (
         <html lang="en">
-            <body className="p-0 m-0 ">
+            <body className="p-0 m-0">
                 <Providers>
                     <RegisterSw />
                     {children}

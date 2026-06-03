@@ -21,11 +21,12 @@ const Btnheader = () => {
         return null
     }
     return (
-        <div>
-            <button onClick={() => setGender("women")} className={` ${gender === "women" ? "bg-[#525050]" : ""} gender border-l cursor-pointer leading-[60px] 
-                 px-6 border-[#4d4c4c] hover:bg-[#525050]`}>WOMEN</button>
+        <div className="max-lg:hidden">
+            <button onClick={() => setGender("women")} className={` ${gender === "women" ? "bg-[#525050]" : ""}
+             text-[1rem] gender border-l cursor-pointer leading-[60px] 
+                 px-3 border-[#4d4c4c] hover:bg-[#525050]`}>WOMEN</button>
             <button onClick={() => setGender("men")} className={` ${gender === "men" ? "bg-[#525050]" : ""} gender cursor-pointer leading-[60px]
-                 px-6 hover:bg-[#525050] border-[#4d4c4c]`}>MEN</button>
+                 px-3 hover:bg-[#525050] border-[#4d4c4c]`}>MEN</button>
         </div>
     )
 };

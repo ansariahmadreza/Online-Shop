@@ -33,46 +33,48 @@ const CartItems = () => {
     })
 
     return (
-        <section className="grid grid-cols-2  justify-center ml-[280px]  items-center ">
-            <div className="min-h-screen flex flex-col gap-4 justify-center items-center">
+        <section className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 px-4 lg:px-10 items-start">
+            <div className="min-h-screen flex flex-col gap-4 justify-start items-center w-full">
                 {
                     showProduct.map((item, index) =>
-                        <section key={index} className="grid grid-cols-3 shadow-2xs bg-[#eeeeee] ">
-
-                            <div>
-                                <Image src={item.imgBef} alt="img" />
+                        <section key={index}
+                            className="grid grid-cols-1 sm:grid-cols-3 bg-[#eeeeee]
+                         gap-3 w-full shadow-sm p-3 rounded-md">
+                            <div className="flex justify-center items-center">
+                                <Image src={item.imgBef} alt="img"
+                                    className="w-full max-w-[120px] h-auto object-contain" />
                             </div>
 
-                            <div className="flex flex-col ml-[-50px] mt-3">
-                                <span className="text-[14px]">{item.price}</span>
-                                <p className="text-[13px] w-[250px]">{item.description}</p>
-                                <section className="flex items-center justify-baseline">
+                            <div className="flex flex-col gap-2 sm:ml-0">
+                                <span className="text-sm">{item.price}</span>
+                                <p className="text-xs sm:text-sm w-full sm:w-[250px]">{item.description}</p>
+
+                                <section className="flex flex-wrap items-center gap-2">
                                     <QtyCart size_selector={item.QtyProduct} id={item.id} qty={item.qty} size={item.size} />
-                                    <div className="mt-2 ml-6">
-                                        <CartSizeManager id={item.id} size={item.size} qty={item.qty} size_selector={item.QtyProduct} />
-                                    </div>
+                                    <CartSizeManager id={item.id} size={item.size} qty={item.qty} size_selector={item.QtyProduct} />
                                 </section>
                             </div>
 
-                            <div className="mt-2 mr-2 flex justify-end">
+                            <div className="flex justify-end sm:justify-end">
                                 <X className="cursor-pointer" onClick={() => handle_Remove_Product(item.id, item.size)} />
                             </div>
                         </section>
                     )
                 }
             </div>
-            <section className="bg-[#eeeeee] w-[300px] h-[200px] mt-[-70px] p-4 ml-4">
-                <div className="border-b border-black px-6 pb-2">
+
+            <section className="bg-[#eeeeee] w-full lg:w-[320px] h-fit p-4 rounded-md sticky top-4">
+                <div className="border-b border-black px-2 pb-2">
                     <h1 className="">TOTAL</h1>
                 </div>
 
-                <div className="flex justify-between mx-6 mt-2">
+                <div className="flex justify-between px-2 mt-2">
                     <p>sub-total</p>
                     <p>£{formatNumberWithCommas(totalPrice)}</p>
                 </div>
 
                 <div>
-                    <p className="mx-6 mt-2">Delivery</p>
+                    <p className="px-2 mt-2">Delivery</p>
                 </div>
 
                 <section className="flex justify-center items-center mt-6">

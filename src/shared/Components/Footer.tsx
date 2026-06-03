@@ -14,40 +14,40 @@ import Image from "next/image";
 
 const Footer = () => {
     return (
-        <section> 
-                <div className="bg-[#f8f8f8] mt-40 w-full h-[450px]">
-                    <nav>
+        <section className="w-screen h-auto"> 
+                <div className="bg-[#f8f8f8] mt-40 w-full h-auto">
+                    <nav className="max-md:hidden">
                         <ul className="grid grid-cols-4  py-7 border-b-2 border-[rgb(237,237,237)] px-10">
                             <div>
                                 <h1 className="text-neutral-500 pb-3 font-bold tracking-widest">HELP & INFORMATION</h1>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-5">Help</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[90px]">Track order</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[110px]">Delivery & returns</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[90px]">ASOS Premier</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[130px]">10% Student Discount</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[60px]">Sitemap</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[90px]">Data Protection</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[120px]">Ethics & Compliance</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-5">Help</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[90px]">Track order</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[110px]">Delivery & returns</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[90px]">ASOS Premier</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[130px]">10% Student Discount</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[60px]">Sitemap</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[90px]">Data Protection</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[120px]">Ethics & Compliance</li>
                             </div>
 
                             <div>
                                 <h1 className="text-neutral-500 pb-3 font-bold tracking-widest">ABOUT ASOS</h1>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[60px]">About us</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[110px]">Careers at ASOS</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[150px]">Corporate responsibility</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[90px]">Investors' site</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[90px]">Cyber Security</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[60px]">About us</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[110px]">Careers at ASOS</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[150px]">Corporate responsibility</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[90px]">Investors' site</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[90px]">Cyber Security</li>
                             </div>
 
                             <div>
                                 <h1 className="text-neutral-500 pb-3 font-bold tracking-widest">MORE FROM ASOS</h1>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[140px]">Mobile and ASOS apps</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-20">Gift vouchers</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[150px]">Corporate gift vouchers</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-20">Black Friday</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[90px]">ASOS x Thrift+</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[110px]">Info for Partners</li>
-                                <li className="py-2 text-[13px] hover:text-[#0770cf] cursor-pointer w-[190px]">Discover the ASOS Credit Card</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[140px]">Mobile and ASOS apps</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-20">Gift vouchers</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[150px]">Corporate gift vouchers</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-20">Black Friday</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[90px]">ASOS x Thrift+</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[110px]">Info for Partners</li>
+                                <li className="py-2 text-[12px] hover:text-[#0770cf] cursor-pointer w-[190px]">Discover the ASOS Credit Card</li>
                             </div>
 
                             <section>

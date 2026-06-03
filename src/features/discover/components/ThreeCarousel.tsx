@@ -51,9 +51,8 @@ const ThreeCarousel = () => {
     return (
         <div>
             <Container>
-                <section className="w-full mx-auto px-14 h-[300px] relative mt-[50px]">
+                <section className="relative mt-12">
                     <Swiper
-                        className="group"
                         modules={[Navigation, Pagination]}
                         centeredSlides={false} ///disable centered slides
                         slidesPerGroup={4} /// here,4 slides move together
@@ -68,31 +67,57 @@ const ThreeCarousel = () => {
                             nextEl: ".Right-btn", ///next slide
                             enabled: true /// navigation enabled
                         }}
+                        breakpoints={{
+                            0: {
+                                slidesPerView: 1,
+                                slidesPerGroup: 1,
+                            },
+                            640: {
+                                slidesPerView: 2,
+                                slidesPerGroup: 2,
+                            },
+                            768: {
+                                slidesPerView: 3,
+                                slidesPerGroup: 3,
+                            },
+                            1024: {
+                                slidesPerView: 4,
+                                slidesPerGroup: 4,
+                            },
+                        }}
                     >
                         {arryImg.map((item) =>
-                            <SwiperSlide key={item.id}>
-                                <section className="flex flex-col items-center justify-center w-[365px]  mb-10">
-                                    <Image src={item.image} alt="img" className="w-[364.25px] h-[400px]" />
-                                    <div className="pr-4 max-2xl:flex max-2xl:flex-col max-2xl:-ml-20 max-2xl:justify-start max-2xl:items-start">
-                                        <p className="h-[50px] text-[15px] w-[328px] max-2xl:w-[250px]  line-clamp-2 ">{item.Description}</p>
-                                        <span className="text-neutral-800 max-2xl:text-[14px] font-bold">{item.Price}</span>
+                            <SwiperSlide key={item.id} className="w-full h-auto">
+                                <article className="group cursor-pointer">
+                                    <div className="overflow-hidden">
+                                        <Image src={item.image} alt="img"
+                                            className="w-full h-[400px] object-center group-hover:scale-105
+                                         transition-transform duration-300" />
                                     </div>
-                                </section>
+
+                                    <div className="mt-3 px-1">
+                                        <p className="text-sm md:text-base line-clamp-2 text-neutral-700">{item.Description}</p>
+                                        <span className="mt-2 block font-semibold text-neutral-950">
+                                            {item.Price}
+                                        </span>
+                                    </div>
+                                </article>
                             </SwiperSlide>
                         )}
                         {/*  customizing image pagination */}
-                        <div className="custom-class text-center flex justify-center items-center "></div>
+                        <div className="custom-class mt-8 flex justify-center "></div>
                     </Swiper>
                     {/* customizing the left navigation arrow */}
-                    <section>
-                        <button className="left-btn absolute  top-[60%] z-50 group-hover w-[30px] h-[30px] ">
-                            <AiOutlineLeft className="cursor-pointer mt-3 text-neutral-500 hover:text-neutral-950 ml-[-50px] text-[55px]" />
-                        </button>
-                    </section>
+                    <button className="left-btn absolute
+                     max-lg:hidden top-[30%] z-50 group-hover
+                      w-[30px] h-[30px] ">
+                        <AiOutlineLeft className="cursor-pointer mt-3 text-neutral-500 hover:text-neutral-950  text-[55px]" />
+                    </button>
+
                     {/* customizing the Right navigation arrow */}
                     <section className="flex justify-end">
-                        <button className="Right-btn  absolute top-[60%] z-50 group-hover w-[30px] h-[30px]">
-                            <AiOutlineRight className="cursor-pointer pl-[25px] text-[80px] text-neutral-500 hover:text-neutral-950" />
+                        <button className="Right-btn max-lg:hidden absolute top-[30%] z-50 group-hover w-[30px]  h-[30px]">
+                            <AiOutlineRight className="cursor-pointer pl-[25px] ml-[-45px] text-[80px] text-neutral-500 hover:text-neutral-950" />
                         </button>
                     </section>
                 </section>

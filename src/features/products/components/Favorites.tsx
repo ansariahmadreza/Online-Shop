@@ -12,7 +12,8 @@ const Faveritelist = () => {
     const { selectedSize } = useCartContext()
 
     return (
-        <section className="min-h-screen box-border mt-10 grid grid-cols-4  place-items-center">
+        <section className="min-h-screen grid-cols-1 gap-6
+         mt-10 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  place-items-center">
             {
                 filteredProducts.map((item) =>
                     <div key={item.id} className='group relative '>

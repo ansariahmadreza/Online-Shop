@@ -12,30 +12,31 @@ import Search from './Search';
 const TopNav = () => {
     const { cartTotalQty } = useCartContext()
     return (
-        <section className="bg-[#2d2d2d] text-white   w-full h-[60px]">
-            <div className='flex justify-center items-center '>
-                <Link href={routes.home} target='_blank'>
-                    <Image src={assos} className='invert-100 pr-3 w-20 ' alt='ASSOS logo' />
-                </Link>
+        <section className="bg-[#2d2d2d] text-white max-lg:py-2 w-full h-auto flex max-lg:pr-10
+        justify-center items-center max-lg:flex max-lg:justify-between max-md:flex max-md:justify-between max-md:pr-6">
+            <Link href={routes.home} target='_blank' className='flex justify-end max-md:ml-12 max-lg:ml-12 w-auto 
+            h-auto max-md:w-20 max-lg:h-7'>
+                <Image src={assos} className='invert-100 pr-3 ' alt='ASSOS logo' />
+            </Link>
+            <div className='max-md:mt-5'>
                 <Btnheader />
-                <Search />
+            </div>
+            <Search />
+            <div className='flex right-0'>
                 <DropDownMenu />
                 <Link href={routes.Product.faverite} target='_blank'>
-                    <Heart className='mx-5' />
+                    <Heart className='mx-5'/>
                 </Link>
-                <Link href={routes.Product.cartlist} >
-                    <section className='flex justify-center'>
-                        <ShoppingBag className=' relative' />
-                        <div className='absolute mt-4 w-[1.5%] text-center rounded-full bg-white text-black'>
-                            {
-                                cartTotalQty > 0 && cartTotalQty 
-                            }
-                        </div>
+                <Link href={routes.Product.cartlist} className='flex justify-center'>
+                    <ShoppingBag className='relative' />
+                    <section className='absolute mt-4 w-[1.5%] text-center rounded-full bg-white text-black'>
+                        {
+                            cartTotalQty > 0 && cartTotalQty
+                        }
                     </section>
                 </Link>
             </div>
         </section>
     )
 };
-
 export default TopNav;

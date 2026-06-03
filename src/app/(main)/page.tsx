@@ -1,7 +1,7 @@
 import { HeroSection } from "@/features/discover"
 const Home = () => {
   return (
-    <div>
+    <div className="w-screen">
       <HeroSection />
     </div>
   )

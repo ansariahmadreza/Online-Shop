@@ -15,7 +15,6 @@ export interface IcartItemsProps {
 
 };
 
-
 export type img_array = {
     id: number
     img: StaticImageData

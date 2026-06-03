@@ -9,23 +9,24 @@ import TwoCarousel from "./TowCarousel";
 
 const HomeSection = () => {
     return (
-        <section>
-            <Container>
-                <figure className="flex justify-center items-center  mt-[300px]">
-                    <Image src={Shop} alt="Shop" height={65} width={2280} />
-                </figure>
+        <section className="w-full">
+            <div className="max-lg:hidden">
+                <Container>
+                    <figure className="flex justify-center items-center  mt-[50px]">
+                        <Image src={Shop} alt="Shop" height={65} width={2280} />
+                    </figure>
 
-                <div className="flex justify-around cursor-pointer  mt-12">
-                    <button className=" w-[200px] h-[50px] cursor-pointer p-3 border-[3px] border-black font-bold">Jackets + Coats</button>
-                    <button className=" w-[200px] h-[50px] cursor-pointer p-3 border-[3px] border-black font-bold">Hoodies + Sweats</button>
-                    <button className=" w-[200px] h-[50px] cursor-pointer p-3 border-[3px] border-black font-bold">Jumpers + Cardigans</button>
-                    <button className=" w-[200px] h-[50px] cursor-pointer p-3 border-[3px] border-black font-bold">Trousers</button>
-                </div>
-            </Container>
-
+                    <div className="flex justify-around cursor-pointer  mt-12">
+                        <button className=" w-[200px] h-[50px] cursor-pointer p-3 border-[3px] border-black font-bold">Jackets + Coats</button>
+                        <button className=" w-[200px] h-[50px] cursor-pointer p-3 border-[3px] border-black font-bold">Hoodies + Sweats</button>
+                        <button className=" w-[200px] h-[50px] cursor-pointer p-3 border-[3px] border-black font-bold">Jumpers + Cardigans</button>
+                        <button className=" w-[200px] h-[50px] cursor-pointer p-3 border-[3px] border-black font-bold">Trousers</button>
+                    </div>
+                </Container>
+            </div>
             <section className="w-full mt-[70px]">
                 <h1 className="text-center font-bold text-3xl">New in</h1>
-                <div className="text-center flex items-center justify-center w-full h-[300px] mt-32 ">
+                <div className="text-center grid grid-cols-4 max-md:grid-cols-2 items-center justify-center w-full h-auto mt-22 ">
                     <figure>
                         <Image src={banner1} alt="The latest drops" width={600} height={250} />
                         <figcaption className="top-[-39px] bg-black/20 text-white relative font-bold">The latest drops</figcaption>
