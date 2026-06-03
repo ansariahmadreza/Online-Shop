@@ -156,7 +156,7 @@ const Clothes = () => {
                             {
                                 //remove pagination if the price filter is applied
                                 (resultFilters ? resultFilters : currentItemsSort).map((item) =>
-                                    <div key={item.description} className='group relative w-full  h-[450px]'>
+                                    <div key={item.description} className='group relative w-full  h-full max-h-[450px]'>
                                         <Link href={`/clothes/${slugify(item.slug, { lower: true, strict: true })}`} >
                                             <Image src={item.imgBef} alt='imgbef' className='absolute cursor-pointer  opacity-100 group-hover:opacity-0'
                                                 width={400} height={300} />
@@ -164,19 +164,20 @@ const Clothes = () => {
                                                 width={400} height={300} />
                                             <span className='text-rose-500 relative  text-[12px] tracking-wider bg-white'>{item.discountRate}</span>
                                         </Link>
-                                        <section className='mt-40'>
-                                            <div className='ml-[-30px]'>
+                                        <section className='mt-40 h-auto'>
+                                            <div className='absolute bottom-2 right-2 z-10'>
                                                 <UseLocalStorage id={item.id} />
                                             </div>
-
-                                            <p className='text-black text-[12px] absolute  mt-[180px] left-0'>{item.description}</p>
-                                            <span className='text-[12px] font-bold absolute  bottom-1 left-0'>{item.price}</span>
+                                            <div className=' absolute'>
+                                                <p className='text-black text-[12px] absolute  mt-[260px] left-0'>{item.description}</p>
+                                                <span className='text-[12px] font-bold absolute  mt-[240px] left-0'>{item.price}</span>
+                                            </div>
                                         </section>
                                     </div>
                                 )}
                         </section>
 
-                        <div className='flex justify-center items-center'>
+                        <div className='flex justify-center items-center mt-96'>
                             {!resultFilters && pageNumbers.map((pageNumber) => (
                                 <button key={pageNumber}
                                     onClick={() => setCurrentPage(pageNumber)}
