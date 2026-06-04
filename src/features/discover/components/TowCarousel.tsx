@@ -25,7 +25,7 @@ import { AiOutlineRight } from "react-icons/ai";
 import { AiOutlineLeft } from "react-icons/ai";
 import ThreeCarousel from "./ThreeCarousel";
 import Link from "next/link";
-import { routes } from "@/shared";
+
 
 
 const TwoCoursel = () => {
@@ -123,11 +123,10 @@ const TwoCoursel = () => {
             </Container>
 
             <div className="mt-[100px] flex flex-col justify-center items-center">
-                <Link href={routes.Product.Clothes} target="_blank" rel="noopener noreferrer">
-                    <button className="bg-black text-white py-2 px-20  cursor-pointer">
-                        Show Products
-                    </button>
-                </Link>
+                <button className="border-2 sm:border-[3px] px-4 py-2
+                    border-black font-bold text-sm sm:text-base w-[250px] sm:w-auto">
+                    SHOP NEW
+                </button>
 
                 <h1 className="my-10 font-bold text-3xl">Just-dropped trainers</h1>
             </div>

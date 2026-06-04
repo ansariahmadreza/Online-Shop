@@ -2,6 +2,8 @@ import Image from "next/image";
 import Container from "@/app/(main)/Container";
 import FirstCarousel from "./FirstCarousel";
 import Image1 from "../assets/Banner.avif";
+import Link from "next/link";
+import { routes } from "@/shared";
 
 const HeroSection = () => {
     return (
@@ -16,10 +18,11 @@ const HeroSection = () => {
                 text-center sm:text-left w-full">
                     <h2 className="font-extrabold text-xl sm:text-2xlmd:text-3xl">Heritage looks</h2>
 
-                    <button className="border-2 sm:border-[3px] px-4 py-2
-                    border-black font-bold text-sm sm:text-base w-full sm:w-auto">
-                        SHOP NEW
-                    </button>
+                    <Link href={routes.Product.Clothes} target="_blank" rel="noopener noreferrer">
+                        <button className="bg-black text-white py-2 px-20  cursor-pointer">
+                            Show Products
+                        </button>
+                    </Link>
                 </section>
             </Container>
             <div className="w-full mt-6">

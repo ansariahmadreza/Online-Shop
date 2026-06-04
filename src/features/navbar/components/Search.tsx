@@ -157,7 +157,7 @@ const SearchItems = () => {
                 <div className="fixed inset-0 z-50 bg-white">
                     <div className="sticky top-0 bg-white border-b p-4 flex items-center gap-3">
                         <div className="flex-1 relative">
-                            <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                            <Search className="absolute right-3 -mt-2.5 -translate-y-1/2 w-5 h-5 text-gray-400" />
                             <input value={searchTerm} onChange={handlerSearchChange}
                                 autoFocus
                                 className="w-full h-12 pr-10 pl-4 rounded-full bg-gray-100 outline-none focus:ring-2 focus:ring-black"

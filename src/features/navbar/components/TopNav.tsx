@@ -16,16 +16,18 @@ const TopNav = () => {
         justify-center max-sm:justify-center max-sm:items-center items-center max-lg:flex max-lg:justify-between max-md:flex max-md:justify-between max-md:pr-6">
             <Link href={routes.home} target='_blank' className='flex justify-end max-md:ml-12 max-lg:ml-12 w-auto 
             h-auto max-md:w-20 max-sm:w-30 max-sm:h-7 max-lg:h-7'>
-                <Image src={assos} className='invert-100 pr-3  ' alt='ASSOS logo' />
+                <Image src={assos} className='invert-100 pr-3' alt='ASSOS logo' />
             </Link>
             <div className='max-md:mt-5'>
                 <Btnheader />
             </div>
-            <Search />
+         
+                <Search />
+      
             <div className='flex right-0 '>
                 <DropDownMenu />
                 <Link href={routes.Product.faverite} target='_blank'>
-                    <Heart className='mx-5'/>
+                    <Heart className='mx-5' />
                 </Link>
                 <Link href={routes.Product.cartlist} className='flex justify-center'>
                     <ShoppingBag className='relative' />
