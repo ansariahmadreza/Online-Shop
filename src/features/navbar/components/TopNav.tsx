@@ -21,9 +21,7 @@ const TopNav = () => {
             <div className='max-md:mt-5'>
                 <Btnheader />
             </div>
-         
-                <Search />
-      
+            <Search />
             <div className='flex right-0 '>
                 <DropDownMenu />
                 <Link href={routes.Product.faverite} target='_blank'>

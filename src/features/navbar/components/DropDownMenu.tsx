@@ -135,7 +135,7 @@ const DropDownMenu = () => {
                 </Sheet>
             </div>
 
-        </div >
+        </div>
     );
 };
 export default DropDownMenu;

@@ -4,7 +4,7 @@ import { allImg } from '@/shared';
 import { Search } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import slugify from 'slugify';
 import { IoClose } from "react-icons/io5";
 import { X } from 'lucide-react';
@@ -23,10 +23,9 @@ const suggestions = [
 
 const SearchItems = () => {
 
-    const [searchResults, setSearchResults] = useState<IcartItemsProps[]>()
+    const [searchResults, setSearchResults] = useState<IcartItemsProps[]>([])
     const [searchTerm, setSearchTerm] = useState("")
     const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false)
-    const [isInputFocused, setIsInputFocused] = useState(false)
     const searchRef = useRef<HTMLDivElement>(null)
     const [flagSearch, setFlagSearch] = useState(false)
     const Router = useRouter()
@@ -48,7 +47,6 @@ const SearchItems = () => {
         const handleClickOutside = (event: MouseEvent) => {
             if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
                 setSearchResults([]);
-                setIsInputFocused(false);
             }
         };
         document.addEventListener('mousedown', handleClickOutside);
@@ -82,14 +80,9 @@ const SearchItems = () => {
     }, [searchTerm]);
 
 
-
-    const handlerSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(e.target.value)
-    }
-
     const handleProductClick = () => {
         if (!flagSearch) {
-            searchResults!.map(item => {
+            searchResults.map(item => {
                 Router.push(`/clothes/${slugify(item.slug, { lower: true, strict: true })}`)
                 setSearchResults([])
                 setSearchTerm("")
@@ -111,8 +104,7 @@ const SearchItems = () => {
             <section className='max-md:hidden'>
                 <div className='ml-10 w-[50vw] h-10 relative'>
                     <label className='bg-white text-[#2d2d2d] flex  justify-center w-[48vw] max-lg:w-[60vw]  rounded-4xl '>
-                        <input onChange={(e) => { handlerSearchChange(e) }} type="text"
-                            onFocus={() => setIsInputFocused(true)}
+                        <input onChange={(e) => { setSearchTerm(e.target.value) }} type="text"
                             placeholder="Search for items and brands"
                             value={searchTerm}
                             className="h-[39px] w-[50vw] ml-4 px-4  max-xl:ml-4 outline-0" />
@@ -149,7 +141,7 @@ const SearchItems = () => {
             </section>
 
             <div className="md:hidden max-lg:flex max-xl:justify-end max-xl:mr-5">
-                <Search onClick={() => setIsMobileSearchOpen(true)} />
+                <Search onClick={() => setIsMobileSearchOpen(true)} className='mt-[-5px]' />
             </div>
 
             {/*Mobile search modal*/}
@@ -157,27 +149,27 @@ const SearchItems = () => {
                 <div className="fixed inset-0 z-50 bg-white">
                     <div className="sticky top-0 bg-white border-b p-4 flex items-center gap-3">
                         <div className="flex-1 relative">
-                            <Search className="absolute right-3 -mt-2.5 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                            <input value={searchTerm} onChange={handlerSearchChange}
+                            <input value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value) }}
                                 autoFocus
-                                className="w-full h-12 pr-10 pl-4 rounded-full bg-gray-100 outline-none focus:ring-2 focus:ring-black"
+                                className="w-full h-12 pr-10  rounded-full text-black  pl-10
+                                 bg-gray-100 outline-none focus:ring-2 focus:ring-black"
                                 type="text"
                                 placeholder="Search for items and brands" />
                             {searchTerm && (
                                 <button onClick={clearSearch} className="absolute left-3 top-1/2 -translate-y-1/2">
-                                    <IoClose className="w-5 h-5 text-gray-400" />
+                                    <IoClose className="w-5 h-5 text-gray-400 " />
                                 </button>
                             )}
                         </div>
                         <button onClick={() => setIsMobileSearchOpen(false)} className="px-4 py-2 text-black font-medium">
-                            <X />
+                            <X/>
                         </button>
                     </div>
 
                     {/* Search results on mobile*/}
                     <div className="px-4">
-                        {searchResults!.length > 0 ? (
-                            searchResults?.map((value, index) => (
+                        {searchResults.length > 0 ? (
+                            searchResults.map((value, index) => (
                                 <button
                                     key={index}
                                     onClick={() => handleProductClick()}
