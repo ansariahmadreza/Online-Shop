@@ -1,9 +1,2 @@
-import { HeroSection } from "@/features/discover"
-const Home = () => {
-  return (
-    <div className="w-screen">
-      <HeroSection />
-    </div>
-  )
-}
+import Home from "./(main)/page";
 export default Home;

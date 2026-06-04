@@ -49,72 +49,85 @@ const ThumbsGallery = ({ product_information }: props) => {
     }
 
     return (
-        <section className="min-h-screen flex justify-center items-center">
-            <div className="grid grid-cols-3 w-full justify-center max-w-6xl gap-8 mt-8">
+        <section className="w-full px-3 sm:px-6 lg:px-10 
+        py-6 flex justify-center items-center">
+            <div className="w-full max-w-6xl flex flex-col lg:grid
+            lg:grid-cols-3 gap-6 lg:gap-10">
                 {/*  Thumbnait */}
                 <Swiper
                     onSwiper={setThumbsSwiper} /// برای گرفتن و نگه داشتن اسلایدر کوچک جهت اتصال به اسلایدر اصلی
                     slidesPerView={5} // تعداد اسلاید های کوچک که در یک زمان نمایش داده میشن
                     watchSlidesProgress={true} /// برای اینکه اسلاید های کوچک به اسلاید اصلی متصل بشن و با کلیک روی هر کدوم از اسلاید های کوچک اسلاید اصلی هم تغییر کنه
                     modules={[Navigation, Thumbs]}
-                    className=" w-[70px] h-[500px] "
+                    className=" w-full lg:w-20 h-[90px] lg:h-[500px]"
                     direction="vertical"
-                    spaceBetween={20}
+                    spaceBetween={10}
+                    breakpoints={{
+                        0: { direction: "horizontal", slidesPerView: 4 },
+                        1024: { direction: "vertical", slidesPerView: 5 },
+                    }}
                 >
                     {product_information.img_array.map((item) =>
-                        <SwiperSlide key={item.id} >
+                        <SwiperSlide key={item.id} className="flex justify-center">
                             <Image
                                 src={item.img}
                                 alt={product_information.description}
                                 title={product_information.description}
-                                width={70}
-                                height={100}
-                                className="cursor-pointer h-[90px] w-[70px] object-cover"
+                                width={80}
+                                height={90}
+                                className="cursor-pointer h-20 sm:w-20 sm:h-[90px] w-[70px] object-cover"
                             />
                         </SwiperSlide>
                     )};
                 </Swiper>
                 {/*  Main Slidert */}
-                <Swiper
-                    thumbs={{ swiper: thumbsSwiper }} /// اتصال اسلایدر اصلی به اسلایدر کوچک
-                    navigation={{
-                        prevEl: ".prev-btn", // کلاس دکمه قبلی
-                        nextEl: ".next-btn"  // کلاس دکمه بعدی
-                    }}
-                    modules={[FreeMode, Navigation, Thumbs]}
-                    loop={true}
-                    className="w-[560px] right-[146px] h-[700px] group relative"
-                >
-                    {
-                        product_information.img_array.map((item) =>
-                            <SwiperSlide key={item.id}>
-                                <Image
-                                    src={item.img}
-                                    alt={product_information.description}
-                                    title={product_information.description}
-                                    width={560}
-                                    height={700}
-                                    className="object-cover opacity-100 w-[560px] h-[700px]"
-                                />
-                            </SwiperSlide>
-                        )
-                    };
-                    {/* دکمه سمت چپ */}
-                    <button className="absolute top-1/2 -translate-y-1/2 left-0 z-10  prev-btn ">
-                        <AiOutlineLeft className="hover:text-black hover:border-2 hover:border-black text-3xl text-neutral-700 cursor-pointer" />
-                    </button>
+                <div className=" relative w-full flex justify-center">
+                    <Swiper
+                        thumbs={{ swiper: thumbsSwiper }} /// اتصال اسلایدر اصلی به اسلایدر کوچک
+                        navigation={{
+                            prevEl: ".prev-btn", // کلاس دکمه قبلی
+                            nextEl: ".next-btn"  // کلاس دکمه بعدی
+                        }}
+                        modules={[FreeMode, Navigation, Thumbs]}
+                        loop={true}
+                        className="w-full group max-w-[520px] lg:h-[700px]
+                        sm:max-w-[600px] relative lg:max-w-[660px] h-[400px] sm:h-[500px]"
+                    >
+                        {
+                            product_information.img_array.map((item) =>
+                                <SwiperSlide key={item.id}>
+                                    <Image
+                                        src={item.img}
+                                        alt={product_information.description}
+                                        title={product_information.description}
+                                        width={560}
+                                        height={700}
+                                        className="object-cover w-full h-[400px] sm:h-[500px] lg:h-[700px]"
+                                    />
+                                </SwiperSlide>
+                            )
+                        };
+                        {/* دکمه سمت چپ */}
+                        <button className="absolute top-1/2 -translate-y-1/2 left-0 z-10  prev-btn ">
+                            <AiOutlineLeft className="hover:text-black hover:border-2 hover:border-black text-3xl text-neutral-700 cursor-pointer" />
+                        </button>
 
-                    {/* دکمه سمت راست */}
-                    <button className="next-btn -translate-y-1/2 absolute top-1/2 cursor-pointer right-0 z-10 next-btn">
-                        <AiOutlineRight className="text-neutral-700  hover:border-2 hover:border-black   hover:text-black text-3xl cursor-pointer" />
-                    </button>
-                </Swiper>
+                        {/* دکمه سمت راست */}
+                        <button className="next-btn -translate-y-1/2 absolute top-1/2 cursor-pointer right-0 z-10 next-btn">
+                            <AiOutlineRight className="text-neutral-700  hover:border-2 hover:border-black   hover:text-black text-3xl cursor-pointer" />
+                        </button>
+                    </Swiper>
+                </div>
 
-                <section className="flex flex-col items-center justify-baseline  w-[300px] ml-10 ">
-                    <span className="ml-9 w-[280px] text-[15px]">{product_information.description}</span>
-                    <span className="font-extrabold ml-[-180px] my-6 text-neutral-600">{product_information.price}</span>
+                <section className="w-full flex flex-col items-start lg:items-center gap-4 px-2 sm:px-4 ">
+                    <p className="text-sm sm:text-[15px] text-center lg:text-left">
+                        {product_information.description}
+                    </p>
+                    <span className="font-extrabold text-neutral-600 text-lg sm:text-xl">
+                        {product_information.price}
+                    </span>
 
-                    <section className="flex-col items-center justify-center mt-45">
+                    <div className="flex-col items-center justify-center mt-45">
                         <div className="mb-6">
                             <span className=" underline float-right text-[13px] mt-[-35px]">
                                 Size_Guide
@@ -130,12 +143,14 @@ const ThumbsGallery = ({ product_information }: props) => {
                                 </p>
                             }
                         </div>
+
                         <button onClick={() => { handleProduct() }} className=" bg-[#018849]  
                          text-[#ffffff] font-bold w-[200px] h-10 hover:bg-[#05683a] cursor-pointer">ADD TO BAG</button>
-                        <div className="mt-[-360px] ml-[55px]">
+                        <div className="mt-[-200px] ml-[55px]">
                             <UseLocalStorage id={product_information.id} />
                         </div>
-                    </section>
+
+                    </div>
                 </section>
             </div >
         </section >

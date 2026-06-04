@@ -130,10 +130,10 @@ const Clothes = () => {
 
             </section>
             <Container>
-                <section>
+                <section className='w-full'>
                     <h1 className="font-bold mt-7 text-[25px]">Selling fast</h1>
-                    <section className="mt-20 min-h-screen">
-                        <div className="flex w-[1370px] justify-between items-center">
+                    <section className="mt-20">
+                        <div className="flex w-full justify-between items-center">
                             <div>
                                 <button className=" cursor-pointer h-10 w-[110px] border border-neutral-300" onClick={() => { setFlagSort(true) }}>
                                     <span className="text-neutral-600 pl-2 float-left">Sort</span>
@@ -152,32 +152,52 @@ const Clothes = () => {
                             </div>
                         </div>
 
-                        <section className='mt-5 w-full gap-x-5 grid place-items-center grid-cols-4'>
-                            {
-                                //remove pagination if the price filter is applied
-                                (resultFilters ? resultFilters : currentItemsSort).map((item) =>
-                                    <div key={item.description} className='group relative w-full  h-full max-h-[450px]'>
-                                        <Link href={`/clothes/${slugify(item.slug, { lower: true, strict: true })}`} >
-                                            <Image src={item.imgBef} alt='imgbef' className='absolute cursor-pointer  opacity-100 group-hover:opacity-0'
-                                                width={400} height={300} />
-                                            <Image src={item.imgAf} alt='imgaf' className='absolute cursor-pointer opacity-0 group-hover:opacity-100'
-                                                width={400} height={300} />
-                                            <span className='text-rose-500 relative  text-[12px] tracking-wider bg-white'>{item.discountRate}</span>
-                                        </Link>
-                                        <section className='mt-40 h-auto'>
-                                            <div className='absolute bottom-2 right-2 z-10'>
-                                                <UseLocalStorage id={item.id} />
-                                            </div>
-                                            <div className=' absolute'>
-                                                <p className='text-black text-[12px] absolute  mt-[260px] left-0'>{item.description}</p>
-                                                <span className='text-[12px] font-bold absolute  mt-[240px] left-0'>{item.price}</span>
-                                            </div>
+                        <section className="mt-5 w-full grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                            {(resultFilters ? resultFilters : currentItemsSort).map((item) => (
+                                <div
+                                    key={item.id}
+                                    className="group w-full flex flex-col"
+                                >
+                                    <Link
+                                        href={`/clothes/${slugify(item.slug, { lower: true, strict: true })}`}
+                                        className="relative w-full h-[380px] overflow-hidden"
+                                    >
+                                        <Image
+                                            src={item.imgBef}
+                                            alt="img before"
+                                            className="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-0 transition-opacity duration-300"
+                                        />
+                                        <Image
+                                            src={item.imgAf}
+                                            alt="img after"
+                                            className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                        />
+                                        <span className="absolute top-2 max-sm:hidden left-2 text-rose-500 text-[12px] bg-white px-2 py-1 rounded">
+                                            {item.discountRate}
+                                        </span>
+                                    </Link>
+
+
+                                    <section className='relative'>
+                                        <div className=' absolute right-2 top-[-200px] bottom-40 z-999'>
+                                            <UseLocalStorage id={item.id} />
+                                        </div>
+                                        <section >
+                                            <p className="text-black text-[12px] line-clamp-2">
+                                                {item.description}
+                                            </p>
+
+                                            <span className="text-[13px] font-bold text-black">
+                                                {item.price}
+                                            </span>
                                         </section>
-                                    </div>
-                                )}
+
+                                    </section>
+                                </div>
+                            ))}
                         </section>
 
-                        <div className='flex justify-center items-center mt-96'>
+                        <div className='flex justify-center items-center'>
                             {!resultFilters && pageNumbers.map((pageNumber) => (
                                 <button key={pageNumber}
                                     onClick={() => setCurrentPage(pageNumber)}
