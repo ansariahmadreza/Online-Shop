@@ -1,3 +1,13 @@
+import { HeroSection } from "@/features/discover";
+import { Breadcrumb, Footer, Nav } from "@/shared";
+
 export default function Page() {
-  return <h1>Home Works</h1>;
+    return (
+        <div>
+            <Nav />
+            <Breadcrumb />
+            <HeroSection />
+            <Footer />
+        </div>
+    );
 }
