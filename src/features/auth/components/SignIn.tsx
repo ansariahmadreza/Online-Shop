@@ -91,7 +91,7 @@ const SignIn = () => {
                     className="flex flex-col gap-3 w-full"
                     onSubmit={handleSubmit(onSubmit)}
                 >
-                    <p className="text-neutral-600 font-bold text-sm ">EMAIL:</p>
+                    <p className="text-neutral-600 font-bold text-sm">EMAIL:</p>
 
                     <input
                         type="email"

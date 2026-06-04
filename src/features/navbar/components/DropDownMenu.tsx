@@ -13,7 +13,7 @@ const DropDownMenu = () => {
     const { logout } = useCartContext();
 
     const handleAccount = () => {
-        if (token) Router.push(routes.dashboord)
+        if (token) Router.push(routes.dashboard)
     };
 
     return (

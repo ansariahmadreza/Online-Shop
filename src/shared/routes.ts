@@ -1,6 +1,6 @@
 export const routes = {
     home: "/",
-    dashboord: "/user",
+    dashboard: "/user",
     notfound: "/404",
     Product: {
         Clothes: "/clothes",
