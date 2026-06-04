@@ -78,7 +78,7 @@ const ThumbsGallery = ({ product_information }: props) => {
                                 className="cursor-pointer h-20 sm:w-20 sm:h-[90px] w-[70px] object-cover"
                             />
                         </SwiperSlide>
-                    )};
+                    )}
                 </Swiper>
                 {/*  Main Slidert */}
                 <div className=" relative w-full flex justify-center">
@@ -105,10 +105,9 @@ const ThumbsGallery = ({ product_information }: props) => {
                                         className="object-cover w-full h-[400px] sm:h-[500px] lg:h-[700px]"
                                     />
                                 </SwiperSlide>
-                            )
-                        };
+                            )};
                         {/* دکمه سمت چپ */}
-                        <button className="absolute top-1/2 -translate-y-1/2 left-0 z-10  prev-btn ">
+                        <button className="absolute top-1/2 -translate-y-1/2 left-0 z-10  prev-btn">
                             <AiOutlineLeft className="hover:text-black hover:border-2 hover:border-black text-3xl text-neutral-700 cursor-pointer" />
                         </button>
 
@@ -119,7 +118,7 @@ const ThumbsGallery = ({ product_information }: props) => {
                     </Swiper>
                 </div>
 
-                <section className="w-full flex flex-col items-start lg:items-center gap-4 px-2 sm:px-4 ">
+                <section className="w-full flex flex-col items-center lg:items-center  gap-4 px-2 sm:px-4 ">
                     <p className="text-sm sm:text-[15px] text-center lg:text-left">
                         {product_information.description}
                     </p>
@@ -127,7 +126,7 @@ const ThumbsGallery = ({ product_information }: props) => {
                         {product_information.price}
                     </span>
 
-                    <div className="flex-col items-center justify-center mt-45">
+                    <div className="flex-col items-center justify-center mt-15 ">
                         <div className="mb-6">
                             <span className=" underline float-right text-[13px] mt-[-35px]">
                                 Size_Guide

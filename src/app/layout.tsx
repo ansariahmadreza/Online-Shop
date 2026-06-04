@@ -4,6 +4,10 @@ import { Metadata } from "next";
 import RegisterSw from "@/components/RegisterSw";
 
 export const metadata: Metadata = {
+    title: {
+        default: "Men's Clothes | Shop for Men's Fashion | ASOS",
+        template: "%s | ASOS",
+    },
     manifest: "/manifest.webmanifest",  // reference to the manifest file
 };
 
