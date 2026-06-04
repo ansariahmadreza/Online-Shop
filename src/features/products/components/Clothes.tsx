@@ -79,7 +79,7 @@ const Clothes = () => {
             {/* Filter */}
             <section className={`${flagFilter ? "relative" : "hidden"} `}>
 
-                <div className={` absolute left-0  bg-white shadow-2xl transition h-[650px] w-[300px] delay-300 z-50 `}>
+                <div className={` absolute left-0  bg-white shadow-2xl transition h-[650px] w-[300px] delay-300 z-10000 `}>
                     <X onClick={() => { setFlagFilter(false) }} className="cursor-pointer float-right" />
                     <h1 className='font-black text-center'>Filter</h1>
                     {/* filterPrice */}

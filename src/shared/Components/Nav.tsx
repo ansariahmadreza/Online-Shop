@@ -8,7 +8,7 @@ const Nav = () => {
     const isMobile = useIsMobile()
     return (
         <section className="text-white overflow-x-hidden bg-black w-full">
-            <header >
+            <header>
                 <Headroom className="fixed w-full left-0 top-0 z-9999">
                     <TopNav />
                     {

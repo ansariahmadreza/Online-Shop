@@ -11,7 +11,7 @@ const BannerNav = () => {
                     WOMEN
                 </button>
 
-                <div className="text-center ">
+                <div className="text-center max-md:hidden">
                     <p className="text-[14px]">
                         New here? Get 15% off + Free Next Day Delivery on your first order with code NEWHERE when you subscribe.
                     </p>

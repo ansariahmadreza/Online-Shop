@@ -23,7 +23,7 @@ const Sort = () => {
     }
 
     return (
-        <section className="left-0  bg-white shadow-2xl  h-[650px] w-[300px]  z-50 absolute">
+        <section className="left-0  bg-white shadow-2xl  h-[650px] w-[300px]  z-100000 absolute">
             <X onClick={() => { setFlagSort(false) }} className="cursor-pointer float-right" />
 
             <header className="font-bold text-center">
