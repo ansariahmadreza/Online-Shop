@@ -16,8 +16,8 @@ const Faveritelist = () => {
          mt-10 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  place-items-center">
             {
                 filteredProducts.map((item) =>
-                    <div key={item.id} className='group relative '>
-                        <div className="mb-[-248px]">
+                    <div key={item.id} className='group relative mt-50'>
+                        <div className="-mb-60">
                             <UseLocalStorage id={item.id} />
                         </div>
 

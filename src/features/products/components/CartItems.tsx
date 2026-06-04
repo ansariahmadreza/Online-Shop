@@ -63,7 +63,7 @@ const CartItems = () => {
                 }
             </div>
 
-            <section className="bg-[#eeeeee] w-full lg:w-[320px] h-fit p-4 rounded-md sticky top-4">
+            <section className="bg-[#eeeeee] w-full lg:w-[320px] h-fit p-4 rounded-md sticky">
                 <div className="border-b border-black px-2 pb-2">
                     <h1 className="">TOTAL</h1>
                 </div>

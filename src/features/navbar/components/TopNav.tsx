@@ -29,7 +29,7 @@ const TopNav = () => {
                 </Link>
                 <Link href={routes.Product.cartlist} className='flex justify-center'>
                     <ShoppingBag className='relative' />
-                    <section className='absolute mt-4 w-[1.5%] text-center rounded-full bg-white text-black'>
+                    <section className='absolute mt-4 w-[1.5%] text-center rounded-full bg-white max-sm:w-[5%] text-black'>
                         {
                             cartTotalQty > 0 && cartTotalQty
                         }
