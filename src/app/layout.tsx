@@ -17,12 +17,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     return (
         <html lang="en">
             <body className="p-0 m-0">
-                <AuthProvider>
-                    <Providers>
+                <Providers>
+                    <AuthProvider>
                         <RegisterSw />
                         {children}
-                    </Providers>
-                </AuthProvider>
+                    </AuthProvider>
+                </Providers>
             </body>
         </html >
     );
