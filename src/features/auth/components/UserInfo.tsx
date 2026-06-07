@@ -82,7 +82,7 @@ const UserInfo = () => {
                         src={img1}
                         alt="My Account"
                         priority
-                        className="w-full h-full object-cover opacity-90"
+                        className="w-full h-auto object-cover "
                     />
                 </div>
             </div>
