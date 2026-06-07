@@ -5,9 +5,6 @@ import RegisterSw from "@/components/RegisterSw";
 import AuthProvider from "@/providers/AuthProviders";
 
 
-
-
-
 export const metadata: Metadata = {
     title: {
         default: "Men's Clothes | Shop for Men's Fashion | ASOS",
