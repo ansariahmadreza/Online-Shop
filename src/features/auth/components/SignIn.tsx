@@ -10,6 +10,7 @@ import { z } from "zod";/// defining validation rules
 import cookie from "js-cookie";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { FcGoogle } from "react-icons/fc";
 
 
 export const userSchema = z.object({/// define an object z with the following properties and rules
@@ -133,13 +134,15 @@ const SignIn = () => {
                             </button>
 
                         </form>
-                        <button onClick={() => signIn("google")}>
-                            Login with Google
-                        </button>
+
                     </div>
 
                 </div>
             </section>
+
+            <button onClick={() => signIn("google")}>
+                <FcGoogle />
+            </button>
 
             <section className="hidden lg:flex w-full h-screen sticky top-0">
                 <Image src={logoRight} alt="logo" fill
