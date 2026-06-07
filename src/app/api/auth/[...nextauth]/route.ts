@@ -1,11 +1,6 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
-console.log({
-    secret: process.env.NEXTAUTH_SECRET,
-    id: process.env.GOOGLE_CLIENT_ID,
-    secret2: process.env.GOOGLE_CLIENT_SECRET,
-});
 
 const handler = NextAuth({
     secret: process.env.NEXTAUTH_SECRET,
