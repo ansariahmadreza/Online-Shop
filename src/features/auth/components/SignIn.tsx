@@ -141,7 +141,7 @@ const SignIn = () => {
             </section>
 
             <button onClick={() => signIn("google")}>
-                <FcGoogle />
+                <FcGoogle size={30} />
             </button>
 
             <section className="hidden lg:flex w-full h-screen sticky top-0">
