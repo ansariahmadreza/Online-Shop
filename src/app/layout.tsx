@@ -2,7 +2,7 @@ import { Providers } from "@/shared";
 import "./globals.css"
 import { Metadata } from "next";
 import RegisterSw from "@/components/RegisterSw";
-import AuthProvider from "@/providers/AuthProviders";
+import AuthProvider from "../providers/AuthProviders";
 
 
 export const metadata: Metadata = {
