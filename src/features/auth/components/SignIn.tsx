@@ -8,9 +8,7 @@ import { useForm } from "react-hook-form"; ///for managing the form and retrievi
 import { zodResolver } from "@hookform/resolvers/zod";///connecting zod validation rules to react hook form
 import { z } from "zod";/// defining validation rules
 import cookie from "js-cookie";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { FcGoogle } from "react-icons/fc";
 
 
 export const userSchema = z.object({/// define an object z with the following properties and rules
@@ -133,9 +131,6 @@ const SignIn = () => {
                                 CONTINUE
                             </button>
                         </form>
-                        <button onClick={() => signIn("google")}>
-                            <FcGoogle className="w-50 h-10 cursor-pointer" />
-                        </button>
                     </div>
 
                 </div>
