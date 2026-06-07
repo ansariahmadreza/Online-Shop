@@ -34,9 +34,6 @@ const MobileNav = () => {
                 <aside className={`fixed top-0 left-0 h-screen w-[320px] bg-white text-black z-50 transition-all duration-300 overflow-y-auto
           ${openMenu ? "translate-x-0" : "-translate-x-full"}`}>
                     <div className="flex items-center justify-between border-b px-5 py-4">
-                        <h1 className="font-bold text-[18px]">
-                            Menu
-                        </h1>
                         <button onClick={() => setOpenMenu(false)}>
                             <X size={28} />
                         </button>
