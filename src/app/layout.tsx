@@ -1,8 +1,8 @@
 import { Providers } from "@/shared";
-import "./globals.css"
+import "./globals.css";
 import { Metadata } from "next";
 import RegisterSw from "@/components/RegisterSw";
-import AuthProvider from "@/providers/AuthProviders";
+// import AuthProvider from "@/providers/AuthProviders";
 
 export const metadata: Metadata = {
     title: {
@@ -17,10 +17,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <html lang="en">
             <body className="p-0 m-0">
                 <Providers>
-                    <AuthProvider>
-                        <RegisterSw />
+                    {/* <AuthProvider> */}
+                        <RegisterSw/>
                         {children}
-                    </AuthProvider>
+                    {/* </AuthProvider> */}
                 </Providers>
             </body>
         </html >
