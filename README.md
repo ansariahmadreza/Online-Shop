@@ -1,102 +1,90 @@
-# 🛒 Online Shop
+# Online Shop
 
-A modern, responsive e-commerce web application built with **⚛️ Next.js** and **📘 TypeScript**, designed as a production-style frontend project with scalable architecture and real-world features.
+## Description 
 
----
+A modern and responsive e-commerce web application built with Next.js and TypeScript.
 
-## ✨ Overview
+## ✨ Features
 
-This project simulates a real-world online store with a focus on ⚡ performance, 🧱 clean code structure, and ♻️ reusable components.
-It demonstrates modern frontend practices using the Next.js App Router and feature-based architecture.
+- 🔐 Google Authentication
+- 📦 Product Listing
+- 🔍 Product Search
+- 💰 Price Range Filter (Min/Max)
+- ↕️ Product Sorting (Highest Price / Lowest Price)
+- 📄 Smart Pagination
+- 🛒 Shopping Cart
+- 📱 Progressive Web App (PWA)
+- 📲 Mobile Installation Support
+- 🎨 Responsive Design
+- 👕 Product Details Page
 
----
-
-## 🚀 Features
-
-### 🔐 Authentication
-
-* 🔑 Google & GitHub login (NextAuth.js)
-* 🛡️ Secure session handling
-
-### 🛍️ Products
-
-* 📦 Dynamic product listing
-* 📄 Product detail pages
-* 📊 Smart pagination system
-
-### 🔍 Search & Filtering
-
-* 🔎 Live search functionality
-* 💰 Price range filter (min / max)
-* ↕️ Sorting (low → high / high → low)
-
-### 🛒 Cart & Favorites
-
-* ➕➖ Add / remove / update cart items
-* 💾 Persistent cart using localStorage
-* ❤️ Favorite products system
-
-### 📱 PWA Support
-
-* 📲 Installable on mobile devices
-* ⚡ App-like experience
-
-### 🎨 UI/UX
-
-* 📱 Fully responsive design
-* 📐 Mobile-first approach
-* 🎯 Clean UI inspired by ASOS design system
-
----
 
 ## 🛠️ Tech Stack
 
-* ⚛️ React 19
-* ▲ Next.js (App Router)
-* 📘 TypeScript
-* 🎨 Tailwind CSS
-* 🔐 NextAuth.js
-* 🧾 React Hook Form
-* ✅ Zod
-* 🧠 Context API / Custom Hooks
+- ⚛️ React
+- ▲ Next.js
+- 📘 TypeScript
+- 🎨 Tailwind CSS
+- 🔐 NextAuth.js
+- 📝 React Hook Form
+- ✅ Zod
 
----
 
 ## 📁 Project Structure
 
-```ts
-src/
-├── app/
-│   ├── (auth)/
+  📁 src/
+├── 📱 app/
+│   ├── 🔐 (auth)/
 │   │   ├── signin/
 │   │   └── user/
-│   ├── (main)/
+│   ├── 🛍️ (main)/
 │   │   ├── cartlist/
 │   │   ├── clothes/[slug]/
 │   │   └── favorite/
-│   └── api/
+│   └── 🔌 api/
 │       └── auth/[...nextauth]/
-│
-├── components/
-│   └── ui/
-│
-├── features/
-│   ├── auth/
-│   ├── discover/
-│   ├── navbar/
-│   └── products/
-│
-├── lib/
-├── providers/
-└── shared/
-    ├── assets/
-    ├── components/
-    ├── hooks/
-    ├── types/
-    └── utils/
-```
 
----
+├── 🧩 components/
+│   └── 🎨 ui/
+
+├── ⚙️ features/
+│   ├── 🔐 auth/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   └── utils/
+│   ├── 🔍 discover/
+│   │   ├── assets/
+│   │   └── components/
+│   ├── 🧭 navbar/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   └── types/
+│   └── 👕 products/
+│       ├── components/
+│       ├── sort/
+│       └── types/
+
+├── 📦 lib/
+
+├── 🧑‍💻 providers/
+
+└── 🔗 shared/
+    ├── 🖼️ assets/
+    │   └── 🌐 lan/
+    ├── 🧱 Components/
+    │   └── 🛒 cartcontext/
+    ├── 🪝 hooks/
+    ├── 🧾 types/
+    └── 🧰 utils/
+
+## 📸 Screenshots
+
+  <img width="1897" height="907" alt="112" src="https://github.com/user-attachments/assets/19d3055c-5104-4375-bae2-51ddd7b61da5" />
+
+  ## 🌐 Live Demo
+
+https://online-shop-pi-ivory.vercel.app/clothes
 
 ## ⚙️ Installation
 
@@ -108,73 +96,64 @@ cd Online-Shop
 pnpm install
 
 pnpm dev
-```
 
----
 
-## 🧪 Scripts
+## 🚀 Usage
 
-* 🚀 `pnpm dev` — Development server
-* 🏗️ `pnpm build` — Production build
-* ▶️ `pnpm start` — Run production build
-* 🧹 `pnpm lint` — Lint code
+After running the project, you can:
 
----
-
-## 🌐 Live Demo
-
-🔗 [https://online-shop-pi-ivory.vercel.app/clothes](https://online-shop-pi-ivory.vercel.app/clothes)
-
----
-
-## 🧭 Usage
-
-### 🏠 Home
-
-Landing page focused on UI/branding (no product logic).
+### 🏠 Home Page
+The homepage is designed only for UI/landing purposes.  
+It showcases the layout, banners, and visual design of the store, but does not display real product data.
 
 ### 👕 Products Page (/clothes)
+Browse all products in the clothes page.  
+This is the main product page where you can:
+- View all items
+- Apply filters (price range)
+- Sort products (cheapest / most expensive)
+- Navigate through product list
 
-* 🛍️ Browse products
-* 🎛️ Apply filters
-* ↕️ Sort items
-* 📄 Pagination support
+### 🔍 Product Filtering
+Use filters to search products by:
+- Price range (min/max)
+- Sorting options
 
 ### 🛒 Cart
+Add products to your cart and manage selected items (add/remove/update).
 
-* ➕➖ Add / remove products
-* 🧾 Manage selected items
-
-### ❤️ Favorites
-
-* ⭐ Save products for later
+### ❤️ Favorite System
+Save products to your favorite list for quick access later.
 
 ### 🔐 Authentication
+Login or sign up using GitHub authentication (NextAuth.js).
 
-Login with Google or GitHub using NextAuth.js.
+### 📱 PWA Support
+Install the app on your mobile device and use it like a native application.
 
-### 📱 PWA
 
-Install app on mobile like a native app 📲
 
----
+
 
 ## 🔮 Future Improvements
 
-* 🗄️ Backend integration (MongoDB / PostgreSQL)
-* 💳 Payment gateway (Stripe)
-* 🔐 Email/password authentication
-* 🧑‍💼 Admin dashboard
-* ⚡ Performance optimization
-* 💾 Server-side cart persistence
-* 📴 Full offline PWA support
+- 🗄️ Add backend integration (real database like MongoDB / PostgreSQL)
+- 💳 Implement payment gateway (Stripe or similar)
+- 🔐 Improve authentication with more providers (Google, Email/Password)
+- 📄 Add product detail page enhancements
+- ⚡ Improve performance and caching
+- 🧑‍💼 Add admin dashboard for product management
+- 📱 Enhance PWA offline support
 
----
+
+
+
+
 
 ## 👨‍💻 Author
 
 Built with ❤️ by **Ahmadreza Ansari**
 
-* 🐙 GitHub: [https://github.com/ansariahmadreza](https://github.com/ansariahmadreza)
-* 🛒 Project: Online Shop (Next.js + TypeScript + NextAuth)
-* 🎨 Inspired by ASOS design system
+- 🔗 GitHub: https://github.com/ansariahmadreza
+- 🚀 Project: Online Shop (Next.js + TypeScript + NextAuth)
+- 🎯 Inspired by ASOS design system (asos.com)
