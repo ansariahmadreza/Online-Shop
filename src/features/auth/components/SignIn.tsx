@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form"; ///for managing the form and retrievi
 import { zodResolver } from "@hookform/resolvers/zod";///connecting zod validation rules to react hook form
 import { z } from "zod";/// defining validation rules
 import cookie from "js-cookie";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 
@@ -129,6 +130,11 @@ const SignIn = () => {
                                 className="w-full h-[50px] bg-neutral-800 hover:bg-black text-white"
                             >
                                 CONTINUE
+                            </button>
+
+
+                            <button onClick={() => signIn("google")}>
+                                Login with Google
                             </button>
 
                         </form>

@@ -2,6 +2,7 @@ import { Providers } from "@/shared";
 import "./globals.css"
 import { Metadata } from "next";
 import RegisterSw from "@/components/RegisterSw";
+import AuthProvider from "@/providers/Authproviders";
 
 export const metadata: Metadata = {
     title: {
@@ -15,10 +16,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     return (
         <html lang="en">
             <body className="p-0 m-0">
+                <AuthProvider>
                     <Providers>
                         <RegisterSw />
                         {children}
                     </Providers>
+                </AuthProvider>
             </body>
         </html >
     );
