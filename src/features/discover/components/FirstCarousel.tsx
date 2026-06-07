@@ -1,5 +1,5 @@
 "use client"
-import Container from "@/app/(main)/Container";
+import Container from "@/app/Container";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/swiper-bundle.css";

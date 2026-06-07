@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Container from "@/app/(main)/Container";
+import Container from "@/app/Container";
 import FirstCarousel from "./FirstCarousel";
 import Image1 from "../assets/Banner.avif";
 import Link from "next/link";

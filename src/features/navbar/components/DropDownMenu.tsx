@@ -7,10 +7,12 @@ import cookie from "js-cookie";
 import { useRouter } from 'next/navigation';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
+
 const DropDownMenu = () => {
 
     const Router = useRouter();
     const token = cookie.get("token");
+ 
     const { logout } = useCartContext();
 
     const handleAccount = () => {
@@ -67,7 +69,7 @@ const DropDownMenu = () => {
                                     <span> My Returns</span>
                                 </div>
                                 {
-                                    token && <button className='text-black mt-4 cursor-pointer  text-[12px]'
+                                    token  && <button className='text-black mt-4 cursor-pointer  text-[12px]'
                                         onClick={() => { logout() }}>Sign Out</button>
                                 }
                             </section>

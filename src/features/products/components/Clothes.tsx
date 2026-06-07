@@ -6,7 +6,7 @@ import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { allImg, useCartContext } from '@/shared';
 import slugify from "slugify";
-import Container from "@/app/(main)/Container";
+import Container from "@/app/Container";
 import UseLocalStorage from './UseLocalStorage';
 import Sort from '../sort/Sort';
 import { useState } from 'react';

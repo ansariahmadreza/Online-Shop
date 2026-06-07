@@ -10,10 +10,10 @@ import { z } from "zod";/// defining validation rules
 import cookie from "js-cookie";
 import { useRouter } from "next/navigation";
 
+
 export const userSchema = z.object({/// define an object z with the following properties and rules
     email: z.string().email("Email is Not Valid")
 });
-
 export type RegisterFormData = z.infer<typeof userSchema>  //create a custom type based on value
 
 const SignIn = () => {
@@ -44,6 +44,7 @@ const SignIn = () => {
             console.log("error:", error)
         }
     };
+
 
 
     return (
@@ -86,7 +87,7 @@ const SignIn = () => {
                                 <circle cx="24" cy="24" r="23" stroke="#2D2D2D" strokeWidth="2"></circle>
                                 <path fill="#2D2D2D" fillRule="evenodd"
                                     d="M34 14h-9L14 25l9 9 11-11zm-2 2h-6l-9 9 6 6 9-9zm-2 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0"
-                                    clipRule="evenodd"/>
+                                    clipRule="evenodd" />
                             </svg>
 
                             <p className="text-[14px] mt-3 text-neutral-800">
@@ -99,7 +100,7 @@ const SignIn = () => {
                                 <circle cx="24" cy="24" r="23" stroke="#2D2D2D" strokeWidth="2"></circle>
                                 <path fill="#2D2D2D" fillRule="evenodd"
                                     d="M16.38 30.7H13.8l-.85-15.3h18.7l.85 1.7h4.25C38.167 19.36 41 23.05 41 23.05v7.65h-2.648c-.14 1.406-1.14 2.55-2.863 2.55s-2.787-1.21-2.862-2.55H22.27a2.976 2.976 0 0 1-5.89 0"
-                                    clipRule="evenodd"/>
+                                    clipRule="evenodd" />
                             </svg>
 
                             <p className="text-[14px] mt-3 text-neutral-800">
@@ -111,13 +112,10 @@ const SignIn = () => {
 
                     <div className="w-full max-w-[300px] mt-8">
                         <form className="flex flex-col gap-3" onSubmit={handleSubmit(onSubmit)}>
-                            <p className="text-neutral-600 font-extrabold text-[14px]">
-                                EMAIL:
-                            </p>
-
                             <input
                                 type="email"
                                 {...register("email")}
+                                placeholder="type email..."
                                 className="border-2 w-full h-[50px] pl-4 focus:border-blue-500 outline-0"
                             />
 

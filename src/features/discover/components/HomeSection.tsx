@@ -1,4 +1,4 @@
-import Container from "@/app/(main)/Container";
+import Container from "@/app/Container";
 import Image from "next/image";
 import Shop from "../assets/shop.avif";
 import banner1 from "../assets/banner1.avif";

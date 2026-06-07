@@ -4,7 +4,7 @@ export const routes = {
     notfound: "/404",
     Product: {
         Clothes: "/clothes",
-        faverite: "/faverite",
+        faverite: "/favorite",
         cartlist: "/cartlist",
     },
     shippingform: "/shippingform",
