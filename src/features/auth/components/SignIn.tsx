@@ -132,17 +132,16 @@ const SignIn = () => {
                             >
                                 CONTINUE
                             </button>
-
                         </form>
-
+                        <button onClick={() => signIn("google")}>
+                            <FcGoogle className="w-50 h-10 cursor-pointer" />
+                        </button>
                     </div>
 
                 </div>
             </section>
 
-            <button onClick={() => signIn("google")}>
-                <FcGoogle size={30} />
-            </button>
+
 
             <section className="hidden lg:flex w-full h-screen sticky top-0">
                 <Image src={logoRight} alt="logo" fill
