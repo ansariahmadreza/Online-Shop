@@ -46,7 +46,6 @@ const SignIn = () => {
     };
 
 
-
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen  w-full">
             <section className="flex flex-col items-center justify-center px-4 py-10 lg:py-0 w-full">
@@ -135,8 +134,6 @@ const SignIn = () => {
 
                 </div>
             </section>
-
-
 
             <section className="hidden lg:flex w-full h-screen sticky top-0">
                 <Image src={logoRight} alt="logo" fill
