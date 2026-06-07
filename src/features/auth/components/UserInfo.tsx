@@ -82,7 +82,7 @@ const UserInfo = () => {
                         src={img1}
                         alt="My Account"
                         priority
-                        className="w-full h-auto object-cover  max-h-[700px]"
+                        className="w-full h-auto object-contain  max-h-[700px]"
                     />
                 </div>
             </div>
