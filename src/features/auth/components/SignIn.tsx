@@ -132,12 +132,10 @@ const SignIn = () => {
                                 CONTINUE
                             </button>
 
-
-                            <button onClick={() => signIn("google")}>
-                                Login with Google
-                            </button>
-
                         </form>
+                        <button onClick={() => signIn("google")}>
+                            Login with Google
+                        </button>
                     </div>
 
                 </div>
