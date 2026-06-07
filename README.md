@@ -84,7 +84,7 @@ A modern and responsive e-commerce web application built with Next.js and TypeSc
 
   ## 🌐 Live Demo
 
-  https://online-shop-flame-nine.vercel.app/clothes
+https://online-shop-pi-ivory.vercel.app/clothes
 
 ## ⚙️ Installation
 
