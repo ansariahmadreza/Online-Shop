@@ -54,7 +54,7 @@ const UserInfo = () => {
                                            hover:bg-gray-50 transition-colors">
                                 <Image src={item.icon}
                                     alt={item.title}
-                                    className="h-5 w-5 shrink-0"/>
+                                    className="h-5 w-5 shrink-0" />
                                 <span className="text-sm text-gray-800 border-b border-transparent hover:border-black">
                                     {item.title}
                                 </span>
@@ -82,7 +82,7 @@ const UserInfo = () => {
                         src={img1}
                         alt="My Account"
                         priority
-                        className="w-full h-auto object-cover "
+                        className="w-full h-auto object-cover  max-h-[700px]"
                     />
                 </div>
             </div>
