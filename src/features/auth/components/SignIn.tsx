@@ -51,7 +51,7 @@ const SignIn = () => {
         signIn("google")
         setTimeout(() => {
              Router.push(routes.Product.Clothes)
-        }, 3000);
+        }, 5000);
        
     }
 
