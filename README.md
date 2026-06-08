@@ -32,51 +32,36 @@ A modern and responsive e-commerce web application built with Next.js and TypeSc
 
 ## 📁 Project Structure
 
-  📁 src/
-├── 📱 app/
+📁 src/
+├── 📦 app/
 │   ├── 🔐 (auth)/
-│   │   ├── signin/
-│   │   └── user/
-│   ├── 🛍️ (main)/
-│   │   ├── cartlist/
-│   │   ├── clothes/[slug]/
-│   │   └── favorite/
+│   │   ├── 🔑 signin/
+│   │   └── 👤 user/
+│   ├── 🏠 (main)/
+│   │   ├── 🛒 cartlist/
+│   │   ├── 👕 clothes/[slug]/
+│   │   └── ❤️ favorite/
 │   └── 🔌 api/
-│       └── auth/[...nextauth]/
-
+│       └── 🔐 auth/[...nextauth]/
+│
 ├── 🧩 components/
 │   └── 🎨 ui/
-
+│
 ├── ⚙️ features/
 │   ├── 🔐 auth/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   └── utils/
 │   ├── 🔍 discover/
-│   │   ├── assets/
-│   │   └── components/
-│   ├── 🧭 navbar/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   └── types/
-│   └── 👕 products/
-│       ├── components/
-│       ├── sort/
-│       └── types/
-
-├── 📦 lib/
-
+│   ├── 📱 navbar/
+│   └── 📦 products/
+│
+├── 📚 lib/
 ├── 🧑‍💻 providers/
-
-└── 🔗 shared/
+└── 🗂️ shared/
     ├── 🖼️ assets/
-    │   └── 🌐 lan/
     ├── 🧱 Components/
-    │   └── 🛒 cartcontext/
     ├── 🪝 hooks/
     ├── 🧾 types/
-    └── 🧰 utils/
+    └── 🛠️ utils/
+    
 
 ## 📸 Screenshots
 
@@ -143,7 +128,6 @@ Install the app on your mobile device and use it like a native application.
 - ⚡ Improve performance and caching
 - 🧑‍💼 Add admin dashboard for product management
 - 📱 Enhance PWA offline support
-
 
 
 
