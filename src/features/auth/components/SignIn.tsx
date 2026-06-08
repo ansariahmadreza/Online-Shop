@@ -9,7 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";///connecting zod validati
 import { z } from "zod";/// defining validation rules
 import cookie from "js-cookie";
 import { useRouter } from "next/navigation";
-// import { signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 
 
@@ -48,7 +48,7 @@ const SignIn = () => {
     };
 
     const handlerGoogle = () => {
-        // signIn("google")
+        signIn("google")
         Router.push(routes.Product.Clothes)
     }
 
