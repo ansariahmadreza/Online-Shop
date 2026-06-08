@@ -139,7 +139,6 @@ Install the app on your mobile device and use it like a native application.
 
 - 🗄️ Add backend integration (real database like MongoDB / PostgreSQL)
 - 💳 Implement payment gateway (Stripe or similar)
-- 🔐 Improve authentication with more providers (Google, Email/Password)
 - 📄 Add product detail page enhancements
 - ⚡ Improve performance and caching
 - 🧑‍💼 Add admin dashboard for product management

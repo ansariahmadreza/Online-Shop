@@ -47,6 +47,10 @@ const SignIn = () => {
         }
     };
 
+    const handlerGoogle = () => {
+        signIn("google")
+        Router.push(routes.Product.Clothes)
+    }
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen  w-full">
@@ -134,10 +138,10 @@ const SignIn = () => {
                         </form>
                     </div>
                 </div>
-                
-                    <button onClick={() => signIn("google")} className="cursor-pointer mt-5">
-                        Login With Google
-                    </button>
+
+                <button onClick={() => handlerGoogle()} className="cursor-pointer mt-5">
+                    Login With Google
+                </button>
             </section>
 
 
