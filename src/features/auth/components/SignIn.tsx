@@ -49,7 +49,10 @@ const SignIn = () => {
 
     const handlerGoogle = () => {
         signIn("google")
-        Router.push(routes.Product.Clothes)
+        setTimeout(() => {
+             Router.push(routes.Product.Clothes)
+        }, 3000);
+       
     }
 
     return (
