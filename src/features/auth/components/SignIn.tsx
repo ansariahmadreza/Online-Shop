@@ -9,6 +9,8 @@ import { zodResolver } from "@hookform/resolvers/zod";///connecting zod validati
 import { z } from "zod";/// defining validation rules
 import cookie from "js-cookie";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+
 
 
 export const userSchema = z.object({/// define an object z with the following properties and rules
@@ -131,9 +133,14 @@ const SignIn = () => {
                             </button>
                         </form>
                     </div>
-
                 </div>
+                
+                    <button onClick={() => signIn("google")} className="cursor-pointer mt-5">
+                        Login With Google
+                    </button>
             </section>
+
+
 
             <section className="hidden lg:flex w-full h-screen sticky top-0">
                 <Image src={logoRight} alt="logo" fill
