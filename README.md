@@ -21,7 +21,6 @@ A modern and responsive e-commerce web application built with Next.js and TypeSc
 
 ## 🛠️ Tech Stack
 
-- ⚛️ React
 - ▲ Next.js
 - 📘 TypeScript
 - 🎨 Tailwind CSS
