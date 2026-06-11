@@ -11,14 +11,14 @@ const manifest = (): MetadataRoute.Manifest => {
         theme_color: "#000000",//Theme color for address bar and task manager
         icons: [// Icon array for different resolutions
             {
-                src: "/icon-192x192.ico", //Path to 192x192 icon
+                src: "/icon-192x192.png", //Path to 192x192 icon
                 sizes: "192x192",//Icon dimensions
-                type: "image/ico",//mime type
+                type: "image/png",//mime type
             },
             {
-                src: "/icon-512x512.ico", //Path to 512x512 icon
+                src: "/icon-512x512.png", //Path to 512x512 icon
                 sizes: "512x512",//Icon dimensions
-                type: "image/ico"//mime type
+                type: "image/png"//mime type
             }
         ],
         lang: "en"
