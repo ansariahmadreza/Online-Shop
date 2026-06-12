@@ -68,7 +68,7 @@ A modern and responsive e-commerce web application built with Next.js and TypeSc
 
   ## 🌐 Live Demo
 
-https://online-shop-pi-ivory.vercel.app/clothes
+https://online-shop-xw45.vercel.app/clothes
 
 ## ⚙️ Installation
 
