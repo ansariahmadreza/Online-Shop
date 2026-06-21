@@ -14,7 +14,6 @@ A modern and responsive e-commerce web application built with Next.js and TypeSc
 - 📄 Smart Pagination
 - 🛒 Shopping Cart
 - 📱 Progressive Web App (PWA)
-- 📲 Mobile Installation Support
 - 🎨 Responsive Design
 - 👕 Product Details Page
 
