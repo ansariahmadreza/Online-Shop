@@ -1,6 +1,5 @@
 import { allImg, useCartContext } from "@/shared";
 import { X } from 'lucide-react';
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 type Props = {
@@ -10,7 +9,7 @@ type Props = {
 const Sort = ({ setProducts }: Props) => {
     const { setFlagSort } = useCartContext()
     const [sortPrice, setSortPrice] = useState<string>('')
-    const Router = useRouter()
+
 
     const handlerSort = () => {
 
