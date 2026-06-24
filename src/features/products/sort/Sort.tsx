@@ -1,30 +1,43 @@
 import { allImg, useCartContext } from "@/shared";
 import { X } from 'lucide-react';
 import { useRouter } from "next/navigation";
-
 import { useState } from "react";
 
-const Sort = () => {
+type Props = {
+    setProducts: React.Dispatch<React.SetStateAction<typeof allImg>>
+}
+
+const Sort = ({ setProducts }: Props) => {
     const { setFlagSort } = useCartContext()
     const [sortPrice, setSortPrice] = useState<string>('')
     const Router = useRouter()
 
     const handlerSort = () => {
+
+        const sorted = [...allImg]
+
         if (sortPrice === "low") {
-            allImg.sort((a, b) =>
-                parseInt(a.price.split("£")[1].trim()) -
-                parseInt(b.price.split("£")[1].trim()))
-        } else if (sortPrice === "hight") {
-            allImg.sort((a, b) =>
-                parseInt(b.price.split("£")[1].trim()) -
-                parseInt(a.price.split("£")[1].trim()))
+            sorted.sort(
+                (a, b) =>
+                    Number(a.price.replace("£", "")) -
+                    Number(b.price.replace("£", ""))
+            )
         }
-        Router.refresh()
+
+        if (sortPrice === "hight") {
+            sorted.sort(
+                (a, b) =>
+                    Number(b.price.replace("£", "")) -
+                    Number(a.price.replace("£", ""))
+            )
+        }
+
+        setProducts(sorted)
     }
 
     return (
         <section className="left-0  bg-white shadow-2xl  h-[650px] w-[300px]  z-100000 absolute">
-            <X onClick={() => { setFlagSort(false) }} className="cursor-pointer float-right" />
+            <X onClick={() => { setFlagSort(false) }} className="float-right cursor-pointer" />
 
             <header className="font-bold text-center">
                 Sort
@@ -33,7 +46,7 @@ const Sort = () => {
             <div className="mt-35">
                 <form onSubmit={(e) => e.preventDefault()}>
                     <ul>
-                        <li className="cursor-pointer border-b  text-black p-2">
+                        <li className="p-2 text-black border-b cursor-pointer">
                             <label>
                                 <input type="radio" name="priceSort"
                                     checked={sortPrice === "low"}
@@ -44,7 +57,7 @@ const Sort = () => {
                             Price low to hight
                         </li>
 
-                        <li className="cursor-pointer mt-10 border-b text-black p-2">
+                        <li className="p-2 mt-10 text-black border-b cursor-pointer">
                             <label>
                                 <input type="radio" name="priceSort"
                                     value={"hight"}

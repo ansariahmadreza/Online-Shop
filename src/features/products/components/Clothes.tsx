@@ -40,6 +40,7 @@ const Clothes = () => {
     const [maxFilter, setMaxFilter] = useState<number>(45)
     const [flagFilter, setFlagFilter] = useState<boolean>(false)
     const [resultFilters, setResultFilters] = useState<filtersType | undefined>()
+    const[product,setProduct]=useState(allImg)
 
 
     ///paginate
@@ -47,7 +48,7 @@ const Clothes = () => {
     const rows_per_page = Math.ceil(allImg.length / page)  ///calculate the number of items that should be displayed per page.
     const endIndex = rows_per_page * currentPage //the endpoint for displaying products on each page
     const startIndex = endIndex - rows_per_page //product display start point on each page
-    const currentItemsSort = allImg.slice(startIndex, endIndex) //product information displayed on each page
+    const currentItemsSort = product.slice(startIndex, endIndex) //product information displayed on each page
     const totalPage = Math.ceil(allImg.length / rows_per_page)
     const pageNumbers = []
 
@@ -73,18 +74,18 @@ const Clothes = () => {
     return (
         <div>
             <div className={`${flagSort ? "relative" : "hidden"} `}>
-                <Sort />
+                <Sort setProducts={setProduct} />
             </div>
 
             {/* Filter */}
             <section className={`${flagFilter ? "relative" : "hidden"} `}>
 
                 <div className={` absolute left-0  bg-white shadow-2xl transition h-[650px] w-[300px] delay-300 z-10000 `}>
-                    <X onClick={() => { setFlagFilter(false) }} className="cursor-pointer float-right" />
+                    <X onClick={() => { setFlagFilter(false) }} className="float-right cursor-pointer" />
                     <h1 className='font-black text-center'>Filter</h1>
                     {/* filterPrice */}
 
-                    <section className='mt-20 flex-col justify-center items-center'>
+                    <section className='flex-col items-center justify-center mt-20'>
                         <div className='flex justify-between mx-12 mb-5'>
                             <p>£{minFilter}</p>
                             <p>£{maxFilter}</p>
@@ -100,7 +101,7 @@ const Clothes = () => {
                                 onValueChange={(value) => handlerRangeFilter(value)}
                             >
                                 <Slider.Track className="relative h-[3px] grow rounded-full bg-blackA7">
-                                    <Slider.Range className="absolute h-full rounded-full bg-black" />
+                                    <Slider.Range className="absolute h-full bg-black rounded-full" />
                                 </Slider.Track>
 
                                 <Slider.Thumb
@@ -119,7 +120,7 @@ const Clothes = () => {
                     </section>
 
 
-                    <section className='w-full mt-20 flex justify-center items-center'>
+                    <section className='flex items-center justify-center w-full mt-20'>
                         <button onClick={() => { location.reload() }} className='bg-white  w-[45%] mx-1 cursor-pointer
                          border-black border-2 text-black py-2.5 px-2 '>Clear</button>
 
@@ -133,10 +134,10 @@ const Clothes = () => {
                 <section className='w-full'>
                     <h1 className="font-bold mt-7 text-[25px]">Selling fast</h1>
                     <section className="mt-20">
-                        <div className="flex w-full justify-between items-center">
+                        <div className="flex items-center justify-between w-full">
                             <div>
                                 <button className=" cursor-pointer h-10 w-[110px] border border-neutral-300" onClick={() => { setFlagSort(true) }}>
-                                    <span className="text-neutral-600 pl-2 float-left">Sort</span>
+                                    <span className="float-left pl-2 text-neutral-600">Sort</span>
                                     <span className='float-right'>
                                         <MoveUp className="inline-block text-2xl h-[25px] mr-[-15px] font-extrabold " />
                                         <MoveDown className="inline-block text-2xl h-[25px] font-extrabold " />
@@ -144,7 +145,7 @@ const Clothes = () => {
                                 </button>
 
                                 <button className="cursor-pointer h-10 w-[110px] border border-neutral-300 ml-2" onClick={() => { setFlagFilter(true) }}>
-                                    <span className="text-neutral-600 pl-2 float-left">Fillter</span>
+                                    <span className="float-left pl-2 text-neutral-600">Fillter</span>
                                     <span className='float-right pr-2'>
                                         <SlidersHorizontal className="inline-block" />
                                     </span>
@@ -152,11 +153,11 @@ const Clothes = () => {
                             </div>
                         </div>
 
-                        <section className="mt-5 w-full grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        <section className="grid w-full grid-cols-1 gap-5 mt-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                             {(resultFilters ? resultFilters : currentItemsSort).map((item) => (
                                 <div
                                     key={item.id}
-                                    className="group w-full flex flex-col"
+                                    className="flex flex-col w-full group"
                                 >
                                     <Link
                                         href={`/clothes/${slugify(item.slug, { lower: true, strict: true })}`}
@@ -165,12 +166,12 @@ const Clothes = () => {
                                         <Image
                                             src={item.imgBef}
                                             alt="img before"
-                                            className="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-0 transition-opacity duration-300"
+                                            className="absolute inset-0 object-cover w-full h-full transition-opacity duration-300 opacity-100 group-hover:opacity-0"
                                         />
                                         <Image
                                             src={item.imgAf}
                                             alt="img after"
-                                            className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                            className="absolute inset-0 object-cover w-full h-full transition-opacity duration-300 opacity-0 group-hover:opacity-100"
                                         />
                                         <span className="absolute top-2 max-sm:hidden left-2 text-rose-500 text-[12px] bg-white px-2 py-1 rounded">
                                             {item.discountRate}
@@ -197,7 +198,7 @@ const Clothes = () => {
                             ))}
                         </section>
 
-                        <div className='flex justify-center items-center'>
+                        <div className='flex items-center justify-center'>
                             {!resultFilters && pageNumbers.map((pageNumber) => (
                                 <button key={pageNumber}
                                     onClick={() => setCurrentPage(pageNumber)}
